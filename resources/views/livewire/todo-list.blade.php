@@ -11,14 +11,17 @@
     {{$todo}}
 
 
-    <div class="table">
-
+    <table class="table table-auto">
+        <tr class="table-header-group">
+            <td class="table-column">Task</td>
+            <td class="table-column">Status</td>
+        </tr>
         @foreach ($todos as $todo)
-        <div class="row">
-            <div class="col">{{ $todo['todo'] }}</div>
-            <div class="col">{{ $todo['status'] }}</div>
-        </div>
+        <tr class="row">
+            <td class="col">{{ $todo['todo'] }}</td>
+            <td class="col">{{ $todo['status'] }}</td>
+        </tr>
         @endforeach
 
-    </div>
+    </table>
 </div>
