@@ -11,21 +11,18 @@
     {{$todo}}
 
 
-    <table class="table table-auto">
-        <tr class="table-header-group">
-            <td class="table-column">Task</td>
-            <td class="table-column">Status</td>
-        </tr>
+    <div class="flex justify-center">
+
 
         @foreach ($todos as $todo)
+<br>
+        {{ $todo['task'] }}</td> -
+        {{ $todo['status'] }}</td> -
+        <button class="rounded-lg bg-white text-[#141414] px-2 font-light border-2">Action</button>
+        <button class="rounded-lg bg-white text-[#141414] px-2 font-light border-2">Action</button>
+        <br>
 
-        
-
-        <tr class="row">
-            <td class="col">{{ $todo['task'] }}</td>
-            <td class="col">{{ $todo['status'] }}</td>
-        </tr>
         @endforeach
 
-    </table>
+    </div>
 </div>
