@@ -8,15 +8,13 @@ class TodoList extends Component
 {
     public $todo = '';
     public $todos = [];
-    private $c = 0;
+
 
     public function add()
     {
-        $this->todos[$this->c]['todo'] = $this->todo;
-        $this->todos[$this->c]['status'] = 'pending';
+        $this->todos[] = ['task' => $this->todo, 'status' => 'pending'];
 
         $this->todo = '';
-        $this->c++;
     }
 
     public function render()

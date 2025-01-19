@@ -16,9 +16,13 @@
             <td class="table-column">Task</td>
             <td class="table-column">Status</td>
         </tr>
+
         @foreach ($todos as $todo)
+
+        
+
         <tr class="row">
-            <td class="col">{{ $todo['todo'] }}</td>
+            <td class="col">{{ $todo['task'] }}</td>
             <td class="col">{{ $todo['status'] }}</td>
         </tr>
         @endforeach
