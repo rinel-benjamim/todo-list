@@ -12,7 +12,7 @@ class TodoList extends Component
 
     public function add()
     {
-        $this->todos[] = ['task' => $this->todo, 'status' => 'pending'];
+        $this->todos[] = ['task' => $this->todo, 'status' => false];
 
         $this->todo = '';
     }
