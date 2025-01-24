@@ -4,9 +4,9 @@
         <h1 class="text-center mt-6 mb-1">Livewire Todo List</h1>
     </div>
 
-    <form wire:submit='add' class="mb-2">
+    <form wire:submit.prevent='add' class="mb-2">
         <div class="text-center">
-            <input type="text" placeholder="Add your task..." wire:model.live='todo'
+            <input type="text" placeholder="Add your task..." wire:model.defer='todo'
                 class="bg-[#f1f0f0] p-2 rounded-full w-96">
 
         </div>
@@ -40,7 +40,7 @@
         </div>
 
     </div>
-    
+
     @endforeach
 
 </div>
