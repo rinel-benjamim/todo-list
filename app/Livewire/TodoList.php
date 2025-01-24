@@ -16,6 +16,16 @@ class TodoList extends Component
         $this->todo = '';
     }
 
+    public function statusChanged($key, $isChecked)
+    {
+        $this->todos[$key]['status'] = $isChecked;
+    }
+
+    public function deleteTask($key){
+        unset($this->todos[$key]);
+        
+    }
+
     public function render()
     {
         return view('livewire.todo-list');
