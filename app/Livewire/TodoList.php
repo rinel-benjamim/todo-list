@@ -11,15 +11,13 @@ class TodoList extends Component
 
     public function add()
     {
-        if (!empty($this->todo)) {
-            $this->todos[] = ['task' => $this->todo, 'status' => false];
-            $this->todo = '';
-        }
+
+        $this->todos[] = ['task' => $this->todo, 'status' => false];
+        $this->todo = '';
     }
 
     public function render()
     {
         return view('livewire.todo-list');
     }
-
 }
