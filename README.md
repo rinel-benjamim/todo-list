@@ -24,19 +24,19 @@ A combinação de Laravel e Livewire permite criar componentes dinâmicos sem a 
 
 ### Backend:
 - **[Laravel](https://laravel.com/)**: Framework PHP robusto utilizado para construir a estrutura do backend.
-![Laravel Logo](https://via.placeholder.com/150x50?text=Laravel)
+![Laravel Logo](https://miro.medium.com/v2/resize:fit:3072/1*eP-KJAthkw68t106qTNhPg.jpeg)
 
 - **[Livewire](https://laravel-livewire.com/)**: Ferramenta poderosa para criar interfaces dinâmicas utilizando apenas PHP.
-![Livewire Logo](https://via.placeholder.com/150x50?text=Livewire)
+![Livewire Logo](https://picperf.io/https://laravelnews.s3.amazonaws.com/images/laravel-livewire.png)
 
 ### Frontend:
 - **Blade**: Sistema de templates padrão do Laravel.
 - **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utilitário para estilização rápida e eficiente.
-![Tailwind Logo](https://via.placeholder.com/150x50?text=Tailwind+CSS)
+![Tailwind Logo](https://media.licdn.com/dms/image/D4D12AQHw9SjCddUhjQ/article-cover_image-shrink_720_1280/0/1715021638881?e=2147483647&v=beta&t=VuDjk7oMCOy2lSJtXjHerIg7QURxNCkcWdzUmfuVlu4)
 
 ### Outras Tecnologias:
 - **FontAwesome**: Para ícones, como a lixeira utilizada para excluir tarefas.
-![FontAwesome Icon](https://via.placeholder.com/50x50?text=FA)
+![FontAwesome Icon](https://i0.wp.com/blog.fontawesome.com/wp-content/uploads/2020/08/Logo.png?fit=1800%2C1200&ssl=1)
 
 ---
 
@@ -98,7 +98,8 @@ Siga os passos abaixo para executar o projeto localmente:
 ---
 
 ## Demonstração
-![Demonstração da Aplicativo](https://via.placeholder.com/800x400?text=App+Demo)
+
+![Captura de ecrã de 2025-01-25 20-39-04](https://github.com/user-attachments/assets/94db50cb-a62f-4996-97fc-75a178b7d262)
 
 ---
 
@@ -119,6 +120,10 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 ---
 
 ## Autor
+![Rinel-Benjamim-meio-corpo](https://github.com/user-attachments/assets/e70866d0-9a92-4c88-868a-8fab2cf21b44)
+
+
 [Rinel Benjamim](https://github.com/rinel-benjamim)  
 [![LinkedIn](https://via.placeholder.com/150x50?text=LinkedIn)](https://www.linkedin.com/in/rinel-benjamim)
+---
 
