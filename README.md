@@ -99,7 +99,8 @@ Siga os passos abaixo para executar o projeto localmente:
 
 ## Demonstração
 
-![Captura de ecrã de 2025-01-25 20-39-04](https://github.com/user-attachments/assets/94db50cb-a62f-4996-97fc-75a178b7d262)
+![Captura de ecrã de 2025-01-26 21-29-31](https://github.com/user-attachments/assets/52849381-61d9-43fe-bf86-990214cd41c8)
+
 
 ---
 
