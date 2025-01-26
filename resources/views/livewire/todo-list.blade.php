@@ -84,5 +84,18 @@
             </div>
         </div>
 
+        @if (count($todos) == 0)
+        <div class="mx-52 my-10">
+            <div class="flex flex-row">
+                <div>
+                    <img height="200px" width="200px"
+                        src="https://github.com/user-attachments/assets/e70866d0-9a92-4c88-868a-8fab2cf21b44" alt=""
+                        srcset="">
+                </div>
+                <div></div>
+            </div>
+        </div>
+        @endif
+
     </main>
 </div>
