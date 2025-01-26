@@ -8,22 +8,45 @@ class TodoList extends Component
 {
     public $todo = '';
     public $todos = [];
+    public $pendingTasks = 0;
+    public $completedTasks = 0;
 
     public function add()
     {
 
         $this->todos[] = ['task' => $this->todo, 'status' => false];
+        $this->checkTasksStatus();
         $this->todo = '';
     }
 
     public function statusChanged($key, $isChecked)
     {
         $this->todos[$key]['status'] = $isChecked;
+        $this->checkTasksStatus();
     }
 
-    public function deleteTask($key){
+    public function deleteTask($key)
+    {
+        if ($this->todos[$key]['status']) {
+            $this->completedTasks -= 1;
+        } else {
+            $this->pendingTasks -= 1;
+        }
+
         unset($this->todos[$key]);
-        
+    }
+
+    private function checkTasksStatus()
+    {
+        $this->completedTasks = 0;
+        $this->pendingTasks = 0;
+        foreach ($this->todos as $todo) {
+            if ($todo['status']) {
+                $this->completedTasks += 1;
+            } else {
+                $this->pendingTasks += 1;
+            }
+        }
     }
 
     public function render()

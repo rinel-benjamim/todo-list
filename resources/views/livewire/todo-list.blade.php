@@ -15,6 +15,8 @@
 
     <div class="container lg:mx-24 flex flex-col">
         <p>Todos: {{ count($todos) }}</p>
+        <p>Pendentes: {{ $pendingTasks }}</p>
+        <p>Concluídas: {{ $completedTasks }}</p>
 
         @foreach ($todos as $index => $todo)
         <div wire:key='todo-{{$index}}'
