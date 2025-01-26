@@ -49,7 +49,7 @@
             <div class="mt-3">
                 @foreach ($todos as $index => $todo)
                 <div wire:key='todo-{{$index}}'
-                    class="flex flex-row bg-[#f1f0f0] p-3 my-3 mx-24 justify-between rounded-lg items-center shadow-md">
+                    class="flex flex-row bg-[#f1f0f0] p-3 my-3 mx-24 justify-between rounded-lg items-center shadow-md hover:bg-[#ececec]">
 
                     <div class="font-extrabold break-words max-w-[75%]
                 @if ($todo['status'])
