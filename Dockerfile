@@ -1,34 +1,43 @@
-# Usando a imagem oficial PHP com Apache
+# Usando uma imagem base do PHP 8.2 com Apache
 FROM php:8.2-apache
 
-# Habilitando mod_rewrite
-RUN a2enmod rewrite
-
-# Instalando dependências do sistema
+# Instalar dependências do sistema e extensões PHP necessárias
 RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     libzip-dev \
     unzip \
-    && docker-php-ext-install zip pdo pdo_mysql
+    git \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql zip \
+    && a2enmod rewrite
 
-# Instalando o Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Definir o diretório de trabalho para a aplicação Laravel
+WORKDIR /var/www/html
 
-# Definindo o diretório de trabalho
-WORKDIR /var/www/html/public
-
-# Copiando o código do projeto para o container
+# Copiar os arquivos da aplicação para o container
 COPY . .
 
-# Instalando dependências do PHP
+# Ajustar as permissões dos arquivos para o Apache
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
+
+# Ajustar o DocumentRoot do Apache para o diretório public do Laravel
+RUN sed -i 's|/var/www/html|/var/www/html/public|' /etc/apache2/sites-available/000-default.conf
+
+# Instalar as dependências do Composer
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer
+
+# Rodar o Composer para instalar as dependências do Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Gerando a chave da aplicação e cacheando configurações
+# Gerar a chave da aplicação Laravel
 RUN php artisan key:generate
-RUN php artisan config:cache
-RUN php artisan route:cache
 
-# Expondo a porta 80
+# Expor a porta 80 para acesso externo
 EXPOSE 80
 
-# Comando para iniciar o servidor
+# Iniciar o Apache em primeiro plano
 CMD ["apache2-foreground"]
