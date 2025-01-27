@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Definindo o diretório de trabalho
-WORKDIR /var/www/html
+WORKDIR /var/www/html/public
 
 # Copiando o código do projeto para o container
 COPY . .
