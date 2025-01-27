@@ -33,6 +33,10 @@ RUN curl -sS https://getcomposer.org/installer | php \
 # Rodar o Composer para instalar as dependências do Laravel
 RUN composer install --no-dev --optimize-autoloader
 
+# Adicionando o comando para rodar as migrações
+RUN php artisan migrate --force
+
+
 # Gerar a chave da aplicação Laravel
 RUN php artisan key:generate
 
