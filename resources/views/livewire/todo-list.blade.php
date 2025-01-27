@@ -9,7 +9,7 @@
             <div class="text-center">
                 <input type="text" placeholder="Add your task..." wire:model.defer='todo'
                     class="bg-[#f1f0f0] p-2 outline-none rounded-l-xl w-96 shadow-sm">
-                <input type="submit" class="bg-green-500 py-2 rounded-r-lg px-4 m-[-4px] text-white" value="Add">
+                <input type="submit" class="bg-green-500 py-2 rounded-r-lg px-4 m-[-4px] text-white shadow-sm" value="Add">
             </div>
         </form>
 
@@ -89,7 +89,7 @@
             <div class="flex flex-row">
                 <div>
                     <img height="200px" width="200px"
-                        src="https://github.com/user-attachments/assets/e70866d0-9a92-4c88-868a-8fab2cf21b44" alt=""
+                        src="https://github.com/user-attachments/assets/e70866d0-9a92-4c88-868a-8fab2cf21b44" alt="Rinel Benjamim Profile Picture"
                         srcset="">
                 </div>
                 <div></div>
