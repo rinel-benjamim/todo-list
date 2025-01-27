@@ -27,13 +27,8 @@ class TodoList extends Component
 
     public function deleteTask($key)
     {
-        if ($this->todos[$key]['status']) {
-            $this->completedTasks -= 1;
-        } else {
-            $this->pendingTasks -= 1;
-        }
-
         unset($this->todos[$key]);
+        $this->checkTasksStatus();
     }
 
     private function checkTasksStatus()
