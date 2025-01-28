@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
     git \
     sqlite3 \
     libsqlite3-dev \
+    nodejs \
+    npm \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo pdo_sqlite zip \
     && a2enmod rewrite
@@ -42,6 +44,9 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 # Rodar o Composer para instalar as dependências do Laravel
 RUN composer install --no-dev --optimize-autoloader
+
+# Instalar dependências do Vite e rodar o build
+RUN npm install && npm run build
 
 # Rodar as migrações (somente se o banco de dados SQLite estiver configurado corretamente)
 RUN php artisan migrate --force
