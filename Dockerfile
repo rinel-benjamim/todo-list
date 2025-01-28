@@ -11,11 +11,14 @@ RUN apt-get update && apt-get install -y \
     git \
     sqlite3 \
     libsqlite3-dev \
-    nodejs \
-    npm \
+    curl \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo pdo_sqlite zip \
     && a2enmod rewrite
+
+# Instalar Node.js e npm (última versão estável LTS)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
 
 # Definir o diretório de trabalho para a aplicação Laravel
 WORKDIR /var/www/html
@@ -45,10 +48,8 @@ RUN curl -sS https://getcomposer.org/installer | php \
 # Rodar o Composer para instalar as dependências do Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Instalar dependências do Vite
+# Instalar dependências do Vite e rodar o build
 RUN npm install
-
-# Rodar o build do Vite
 RUN npm run build
 
 # Rodar as migrações (somente se o banco de dados SQLite estiver configurado corretamente)
