@@ -5,7 +5,7 @@
 
     RewriteEngine On
 
-    # Forçar o uso de HTTPS
+    # Forçar o uso de HTTPS apenas se não estiver já em HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
