@@ -59,7 +59,7 @@ RUN php artisan migrate --force
 RUN php artisan key:generate
 
 # Garantir que os arquivos estáticos gerados pelo Vite (CSS/JS) tenham permissões corretas
-RUN chmod -R 777 /var/www/html/public/build
+RUN chmod -R 777 /var/www/html/public/build/assets
 
 # Expor a porta 80 para acesso externo
 EXPOSE 80
