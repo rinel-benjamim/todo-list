@@ -25,6 +25,9 @@ COPY . .
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
+# Verificar se o banco de dados existe, caso contrário, criar um arquivo vazio
+RUN if [ ! -f /var/www/html/database/database.sqlite ]; then touch /var/www/html/database/database.sqlite; fi
+
 # Garantir que o banco de dados SQLite tenha as permissões corretas
 RUN chmod -R 777 /var/www/html/database/database.sqlite \
     && chown -R www-data:www-data /var/www/html/database \
