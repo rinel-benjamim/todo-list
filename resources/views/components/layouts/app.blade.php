@@ -9,7 +9,7 @@
 
 
     <title>{{ $title ?? 'Todo List' }}</title>
-    @vite('resources/css/app.css', ['secure'=>true])
+    @vite('resources/css/app.css')
 </head>
 
 <body class="bg-[#f1f0f0]">

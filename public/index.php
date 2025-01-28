@@ -15,8 +15,3 @@ require __DIR__ . '/../vendor/autoload.php';
 // Bootstrap Laravel and handle the request...
 (require_once __DIR__ . '/../bootstrap/app.php')
     ->handleRequest(Request::capture());
-
-if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
-    header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-    exit;
-}
