@@ -3,12 +3,6 @@
         Options -MultiViews -Indexes
     </IfModule>
 
-    RewriteEngine On
-
-    # Forçar o uso de HTTPS apenas se não estiver já em HTTPS
-    RewriteCond %{HTTPS} off
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
