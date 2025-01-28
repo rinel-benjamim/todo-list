@@ -45,14 +45,20 @@ RUN curl -sS https://getcomposer.org/installer | php \
 # Rodar o Composer para instalar as dependências do Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Instalar dependências do Vite e rodar o build
-RUN npm install && npm run build
+# Instalar dependências do Vite
+RUN npm install
+
+# Rodar o build do Vite
+RUN npm run build
 
 # Rodar as migrações (somente se o banco de dados SQLite estiver configurado corretamente)
 RUN php artisan migrate --force
 
 # Gerar a chave da aplicação Laravel
 RUN php artisan key:generate
+
+# Garantir que os arquivos estáticos gerados pelo Vite (CSS/JS) tenham permissões corretas
+RUN chmod -R 777 /var/www/html/public/build
 
 # Expor a porta 80 para acesso externo
 EXPOSE 80
