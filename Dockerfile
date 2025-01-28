@@ -23,19 +23,21 @@ COPY . .
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
+# Garantir que o banco de dados SQLite tenha as permissões corretas
+RUN chmod -R 777 /var/www/html/database
+
 # Ajustar o DocumentRoot do Apache para o diretório public do Laravel
 RUN sed -i 's|/var/www/html|/var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
-# Instalar as dependências do Composer
+# Instalar o Composer
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 
 # Rodar o Composer para instalar as dependências do Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Adicionando o comando para rodar as migrações
+# Rodar as migrações (somente se o banco de dados SQLite estiver configurado corretamente)
 RUN php artisan migrate --force
-
 
 # Gerar a chave da aplicação Laravel
 RUN php artisan key:generate
